@@ -23,7 +23,6 @@ import imguiSink;          // Import the ImGui sink module
 #include <spdlog/spdlog.h>
 
 #ifdef _DEBUG
-#include <Windows.h>
 
 #define DEBUG_PRINT(msg) OutputDebugStringA(msg)
 #else
