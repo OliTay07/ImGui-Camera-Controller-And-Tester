@@ -1,0 +1,82 @@
+{
+  "commands": [
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraState",
+      "parameter": "on"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraState",
+      "parameter": "off"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraPan",
+      "parameter": "left"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraPan",
+      "parameter": "right"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraPan",
+      "parameter": "stop"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraTilt",
+      "parameter": "up"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraTilt",
+      "parameter": "down"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraTilt",
+      "parameter": "stop"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraZoom",
+      "parameter": "increase"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraZoom",
+      "parameter": "decrease"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraZoom",
+      "parameter": "stop"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraWhiteBalance",
+      "parameter": "auto-on"
+    },
+    {
+      "feature": "camsHandler",
+      "deviceId": 1,
+      "action": "SetCameraWhiteBalance",
+      "parameter": "auto-off"
+    }
+  ]
+}

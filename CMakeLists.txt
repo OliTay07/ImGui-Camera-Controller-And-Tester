@@ -57,6 +57,9 @@ set(SOURCES
     src/modules/wsClient/wsClient.cpp
     src/modules/wsClient/wsClient.hpp
 
+    src/modules/presets/presets.cpp
+    src/modules/presets/presets.hpp
+
     src/headers/Resource.h
     src/headers/framework.h
     src/headers/targetver.h

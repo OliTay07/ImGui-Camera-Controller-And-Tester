@@ -17,6 +17,8 @@ module;
 #include "spdlog/spdlog.h"
 #include "restClient.hpp"
 #include "wsClient.hpp"
+#include "presets.hpp"
+
 
 module ui;
 
@@ -157,7 +159,7 @@ void renderUI(ID3D11DeviceContext* g_pd3dDeviceContext,
     ImGui::Begin("WebsocketClient");
 
     // URI input and connect button
-    static char wsUriBuffer[256] = "ws://127.0.0.1:11808/";
+    static char wsUriBuffer[256] = "ws://192.168.0.166:11808/";
     ImGui::InputText("WebSocket URI", wsUriBuffer, IM_ARRAYSIZE(wsUriBuffer));
     
     // Track connection status for button colors
@@ -224,6 +226,23 @@ void renderUI(ID3D11DeviceContext* g_pd3dDeviceContext,
     {
         commands.emplace_back(commandBuffer);
     }
+
+    //show a load button
+    //if load button is pressed
+    //push back each entry onto the commands vector
+    ImGui::SameLine();
+    if (ImGui::Button("Load"))
+    {
+        std::string path = openJsonFileDialog("Load JSON File");
+        std::vector<std::string> temp = presets::load(path);
+        for (size_t i = 0; i < temp.size(); i++)
+        {
+            commands.emplace_back(temp[i]);
+        }
+
+
+    }
+
 
     // Display each command entry with a Send button and a Remove button
     for (size_t i = 0; i < commands.size(); ++i)
@@ -500,5 +519,24 @@ std::string openFileSaveDialog(const char* title)
     }
     return "";
 }
+
+std::string openJsonFileDialog(const char* title)
+{
+    char filename[MAX_PATH] = "";
+    OPENFILENAMEA ofn = { sizeof(OPENFILENAMEA) };
+    ofn.hwndOwner = nullptr; // If you have a window handle, set it here
+    ofn.lpstrFilter = "Json Files\0*.json\0All Files\0*.*\0";
+    ofn.lpstrFile = filename;
+    ofn.nMaxFile = MAX_PATH;
+    ofn.lpstrTitle = title;
+    ofn.Flags = OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
+
+    if (GetOpenFileNameA(&ofn))
+    {
+        return std::string(filename);
+    }
+    return "";
+}
+
 
 // ui.cpp

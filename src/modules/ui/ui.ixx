@@ -24,6 +24,7 @@ void renderConsoleWindow();
 std::string openFolderPicker(const char* dialogTitle);
 std::string openFileOpenDialog(const char* title);
 std::string openFileSaveDialog(const char* title);
+std::string openJsonFileDialog(const char* title);
 
 // Helper function to convert std::string to std::wstring
 std::wstring stringToWString(const std::string& s);
