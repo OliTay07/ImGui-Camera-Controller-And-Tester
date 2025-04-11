@@ -22,6 +22,8 @@ import imguiSink;          // Import the ImGui sink module
 
 #include <spdlog/spdlog.h>
 
+#include "presets.hpp"
+
 #ifdef _DEBUG
 
 #define DEBUG_PRINT(msg) OutputDebugStringA(msg)
@@ -135,8 +137,12 @@ int main()
         if (done)
             break;
 
+
+
+        static presets::commandValues currentCommand;
+        static presets::testResults results;
         // Render the UI
-        renderUI(g_pd3dDeviceContext, g_mainRenderTargetView, g_pSwapChain);
+        renderUI(g_pd3dDeviceContext, g_mainRenderTargetView, g_pSwapChain, currentCommand);
     }
 
     // Cleanup in correct order

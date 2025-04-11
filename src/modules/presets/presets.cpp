@@ -78,4 +78,41 @@ namespace presets
         //}
     }
 
+    void save (const std::string filePath, const commandValues newCommand)
+    {
+        nlohmann::json j;
+
+        //std::string filePath = "C:/Users/taylo/Documents/_Repos/template-imguiWinAppDX11-with-rest-and-ws-client/presets.json";
+
+        std::ifstream in(filePath);
+
+        in >> j;
+
+        std::vector<std::string> cmds{};
+
+        if (j.contains("commands"))
+        {
+            for (const auto& item : j["commands"])
+            {
+                cmds.push_back(item.dump());
+            }
+        }
+
+
+        nlohmann::json command;
+
+        command["feature"] = newCommand.feature;
+        command["id"] = newCommand.id;
+        command["action"] = newCommand.action;
+        command["parameter"] = newCommand.parameter;
+
+
+        j["commands"].push_back(command);
+
+        std::ofstream out(filePath);
+        out << j.dump();
+
+    }
+
+
 }

@@ -12,12 +12,15 @@ module;
 #include "imgui_impl_dx11.h"
 #include "imgui_impl_win32.h"
 
+#include "presets.hpp"
+
 export module ui;
 
 // Exported functions and declarations
 export void renderUI(ID3D11DeviceContext* g_pd3dDeviceContext, 
 	ID3D11RenderTargetView* g_mainRenderTargetView,
-	IDXGISwapChain* g_pSwapChain);
+	IDXGISwapChain* g_pSwapChain,
+	presets::commandValues& commandValues);
 
 void renderConsoleWindow();
 
